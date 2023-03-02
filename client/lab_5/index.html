@@ -20,16 +20,19 @@
         <div class="container">
             <div class="left_section box">
                 <h3>Form Inputs</h3>
-                <form action="https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json" class="box">
-                    Restaurant Name
-                    <label for="resto"></label>
-                    <input type="text" name="resto" id="resto">
-                    <button type="submit">Submit</button>
+                <form action="https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json"
+                class="box main_form">
+                    <label for="resto">Restaurant Name</label>
+                    <input type="text" id="resto" name="resto">
+                    <div>
+                    <button type="submit">Load Data</button>
+                    <button type="button" class="filter_button">Filter Data</button>
+                    </div>
                 </form>
             </div>
             <div class="right_section box">
-                <h3>Local Restaurants</h3>
-                <div class="restaurant_list box">
+                <h2>Local Restaurants List</h2>
+                <div class="box" id="restaurant_list">
                     A List of Local Restaurants From an API
                 </div>
             </div>
@@ -38,5 +41,6 @@
             GitHub Link: <a href="https://atyler15.github.io/INST377-Lab-Work/" target="_blank" rel="noopener noreferrer">Allen Tyler's GitHub INST377 Repository</a>
         </footer>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
