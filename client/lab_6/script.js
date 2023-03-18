@@ -51,11 +51,15 @@ async function mainEvent() { // the async keyword means we can make API requests
   const generateListButton = document.querySelector('#generate');
   // Add a querySelector that targets your filter button here
 
+  const loadAnimation = document.querySelector('#data_load_animation');
+  loadAnimation.style.display = 'none';
+
   let currentList = []; // this is "scoped" to the main event function
 
   /* We need to listen to an "event" to have something happen in our page - here we're listening for a "submit" */
   mainForm.addEventListener('click', async (submitEvent) => { // async has to be declared on every function that needs to "await" something
-
+    console.log('Loading data');
+    loadAnimation.style.display = 'inline-block';
     // This prevents your page from becoming a list of 1000 records from the county, even if your form still has an action set on it
     submitEvent.preventDefault();
 
@@ -85,7 +89,6 @@ async function mainEvent() { // the async keyword means we can make API requests
       simply won't work.
     */
     console.table(currentList);
-    injectHTML(currentList);
   });
 
 
@@ -106,6 +109,7 @@ async function mainEvent() { // the async keyword means we can make API requests
   gnerateListButton.addEventListener('click', (event) => {
     console.log('generate new list');
     const restaurantList = cutRestaurantList(currentList);
+    console.log(restaurantList);
     injectHTML(restaurantList);
   })
 
